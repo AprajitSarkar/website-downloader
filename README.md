@@ -1,75 +1,137 @@
-## Complete Website Downloader 💾
-Download the complete source code of any website (including all assets) 🔨.
+# ⚡ Website Downloader & Offline Browser for Android
 
-👉 Live Demo: https://website-downloader.onrender.com
+<p align="center">
+  <img src="https://img.shields.io/badge/Platform-Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Android" />
+  <img src="https://img.shields.io/badge/Framework-Flutter%203.x-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter" />
+  <img src="https://img.shields.io/badge/Language-Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white" alt="Dart" />
+  <img src="https://img.shields.io/badge/Architecture-100%25%20On--Device-10B981?style=for-the-badge&logo=speedtest&logoColor=white" alt="On-Device" />
+  <img src="https://img.shields.io/badge/Google%20Play-Compliant-4285F4?style=for-the-badge&logo=googleplay&logoColor=white" alt="Google Play" />
+  <img src="https://img.shields.io/badge/License-MIT-purple?style=for-the-badge" alt="License" />
+</p>
 
-![enter image description here](https://github.com/AhmadIbrahiim/Website-downloader/blob/master/public/Record.gif?raw=true)
-<div align="center">
+---
 
-  <a href="">![CodeFactor](https://www.codefactor.io/repository/github/ahmadibrahiim/website-downloader/badge)</a>
+## 🌟 Overview
 
-</div>
+**Website Downloader** is a modern, high-performance Android mobile application built with Flutter that allows you to scrape, package, bundle, and browse complete websites entirely offline. 
 
-## Description 📒
- Website downloader works with `wget` and `archiver` to download all websites assets and compress then sends it back to the user through socket channel
- 
- **wget params the being used**
- 
- `wget --mirror --convert-links --adjust-extension --page-requisites 
---no-parent http://example.org`
+Unlike traditional web downloaders that depend on heavy external server backends or cloud scrapers, **Website Downloader runs 100% locally on your phone**. It parses HTML trees, downloads and rewrites linked CSS stylesheets, JavaScript files, images, and fonts, packages everything into portable `.zip` archives, and serves them locally using an embedded on-device localhost HTTP server.
 
- **Explanation of the various flags:**
+---
 
- - --mirror – Makes (among other things) the download recursive.
-- --convert-links – convert all the links (also to stuff like CSS stylesheets) to relative, so it will be suitable for offline viewing.
-- --adjust-extension – Adds suitable extensions to filenames (html or css) depending on their content-type.
-- --page-requisites – Download things like CSS style-sheets and images required to properly display the page offline.
-- --no-parent – When recursing do not ascend to the parent directory. It useful for restricting the download to only a portion of the site
-### Deploy on cloud providers
-[![Run on Replit](https://binbashbanana.github.io/deploy-buttons/buttons/remade/replit.svg)](https://replit.com/github/AhmadIbrahiim/Website-downloader)
-[![Remix on Glitch](https://binbashbanana.github.io/deploy-buttons/buttons/remade/glitch.svg)](https://glitch.com/edit/#!/import/github/AhmadIbrahiim/Website-downloader)
-[![Deploy on Railway](https://binbashbanana.github.io/deploy-buttons/buttons/remade/railway.svg)](https://railway.app/new/template?template=https://github.com/AhmadIbrahiim/Website-downloader)
-[![Deploy to Cyclic](https://binbashbanana.github.io/deploy-buttons/buttons/remade/cyclic.svg)](https://app.cyclic.sh/api/app/deploy/AhmadIbrahiim/Website-downloader)
-[![Deploy to Koyeb](https://binbashbanana.github.io/deploy-buttons/buttons/remade/koyeb.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/AhmadIbrahiim/Website-downloader&branch=main&name=Website-downloader)
-[![Deploy to Render](https://binbashbanana.github.io/deploy-buttons/buttons/remade/render.svg)](https://render.com/deploy?repo=https://github.com/AhmadIbrahiim/Website-downloader)
+## ✨ Key Features
 
+- **⚡ 100% Standalone On-Device Engine**: No Node.js backend, cloud servers, or external proxies required. Everything runs inside the mobile app.
+- **🌐 Embedded Localhost Web Server**: Serves downloaded websites over an internal `127.0.0.1` loopback server, bypassing `file://` CORS and font-rendering restrictions for a 1:1 original browsing experience.
+- **🕒 Dynamic Download History**: Quick-access recent website history chips below the address input for rapid re-downloads and instant previews.
+- **📦 ZIP Packaging & Scoped Storage**: Automatically extracts archives and organizes saved sites into the user's `Download/Website Downloader` directory with standard file manager access.
+- **📜 Live Terminal Console**: Watch real-time scraping stages, network requests, byte streams, and ZIP compression metrics in a live hacker-style console.
+- **💎 Ultra-Modern Liquid Glass UI**: Sleek glassmorphism theme designed with subtle gradients, responsive animations, and accessible typography.
+- **🔒 Privacy First & Zero Telemetry**: Zero user tracking, zero data logging, and no analytics SDKs. All browsing data stays on your device.
+- **🚀 Google Play Console Ready**: Follows latest Android scoped storage guidelines (API 33/34+ compliant), standard permission model, and included Privacy Policy.
 
-## Requirements 📦
+---
 
-- Node.js 16 or newer
-- `wget` on the `PATH`. The app shells out to it, and nothing will download without it:
-  - Debian/Ubuntu: `apt install wget`
-  - macOS: `brew install wget`
-  - Windows: `winget install JernejSimoncic.Wget`
+## 📸 Screenshots & Architecture
 
-## How to run it 🤔
+```
+                                [ Website Downloader Architecture ]
+                                
+    [ User Input URL ] 
+            │
+            ▼
+    [ Native Dart Scraper ] ───► Fetches HTML & Parses DOM Tree
+            │
+            ├──────────────► Downloads Linked CSS, JS, Images, & Webfonts
+            ├──────────────► Rewrites Relative & Absolute Resource URLs
+            │
+            ▼
+    [ Archive & Compression Engine ] ───► Generates Clean .ZIP Bundle
+            │
+            ▼
+    [ Scoped Storage / Device Vault ] ───► Stores in Download/Website Downloader
+            │
+            ▼
+    [ Embedded Local Web Server (127.0.0.1) ]
+            │
+            ├──────────────► In-App Interactive WebView
+            └──────────────► Launch in System Chrome / Firefox / Brave
+```
 
-- `git clone https://github.com/AhmadIbrahiim/Website-downloader.git`
-- `cd Website-downloader`
-- `$ npm install`
-- `$ npm start`
-- `http://localhost:3000/`
+---
 
-### Optional settings
+## 🚀 Quick Start & Download APK
 
-| Variable | Default | What it does |
-| --- | --- | --- |
-| `PORT` | `3000` | Port the server listens on |
-| `DOWNLOAD_QUOTA` | `100m` | Size ceiling passed to wget, so one request cannot fill the disk |
-| `DOWNLOAD_TIMEOUT_MS` | `300000` | How long a single download may run before it is stopped |
+### 📲 Download Pre-Built APK
+Get the latest stable release directly from GitHub:
+👉 **[Download Latest APK from Releases](https://github.com/AprajitSarkar/website-downloader/releases)**
 
+### 🛠️ Building from Source
 
+```bash
+# 1. Clone the repository
+git clone https://github.com/AprajitSarkar/website-downloader.git
+cd website-downloader/website_downloader_mobile
 
-# How To Contribute:
- - Open Issue(s) with any bugs you notice.
- - Please create Pull Requests if you think it would be an added value towards our program.
+# 2. Fetch Flutter dependencies
+flutter pub get
 
-## Liked it ? You can buy a coffee:
+# 3. Run on connected Android device or emulator
+flutter run
 
-<a href="https://www.buymeacoffee.com/aibrahim" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+# 4. Build release APK
+flutter build apk --release
+```
 
-Thank you,
+The compiled APK will be located at:
+`website_downloader_mobile/build/app/outputs/flutter-apk/app-release.apk`
 
-Email: me@ahmed-ibrahim.com
+---
 
-https://www.ahmed-ibrahim.com
+## 🏷️ Google Play Console & Package Name Configuration
+
+Website Downloader is designed to be easily branded or published under your existing Google Play Console app identifier.
+
+To update the package name / application ID for your Play Store listing:
+1. Open `website_downloader_mobile/android/app/build.gradle.kts`
+2. Update the `applicationId` to match your registered Google Play Console package:
+   ```kotlin
+   defaultConfig {
+       applicationId = "com.yourcompany.websitedownloader"
+       minSdk = 24
+       targetSdk = 34
+       versionCode = 1
+       versionName = "1.0.0"
+   }
+   ```
+3. Build the signed Android App Bundle (AAB):
+   ```bash
+   flutter build appbundle --release
+   ```
+
+---
+
+## 🔒 Privacy Policy
+
+Website Downloader does not collect or transmit personal information. Read our full [Privacy Policy](PRIVACY_POLICY.md).
+
+---
+
+## 🙏 Credits & Acknowledgments
+
+- **Original Inspiration:** The concept and desktop/Node.js web scraper architecture originated from [Website-downloader](https://github.com/AhmadIbrahiim/Website-downloader) by **Ahmad Ibrahiim** ([@AhmadIbrahiim](https://github.com/AhmadIbrahiim)).
+- **Mobile Standalone Re-Architecture:** Created with Flutter, Dio, HTML parser, and shelf embedded web server by **Aprajit Sarkar**.
+
+---
+
+## 📬 Contact & Support
+
+- **Email:** [workcozmo@gmail.com](mailto:workcozmo@gmail.com)
+- **GitHub:** [https://github.com/AprajitSarkar/website-downloader](https://github.com/AprajitSarkar/website-downloader)
+- **Issues & Pull Requests:** [Issue Tracker](https://github.com/AprajitSarkar/website-downloader/issues)
+
+---
+
+<p align="center">
+  <sub>Made with ❤️ and Flutter for seamless offline web access anywhere.</sub>
+</p>

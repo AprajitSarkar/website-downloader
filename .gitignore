@@ -14,17 +14,16 @@ lib-cov
 # Coverage directory used by tools like istanbul
 coverage
 
-# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+# Grunt intermediate storage
 .grunt
 
 # node-waf configuration
 .lock-wscript
 
-# Compiled binary addons (http://nodejs.org/api/addons.html)
+# Compiled binary addons
 build/Release
 
 # Dependency directory
-# https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
 node_modules
 
 # Working directory for in-progress downloads
@@ -32,3 +31,19 @@ downloads
 
 # Archives generated for users
 public/sites/*.zip
+
+# Flutter & Mobile Binaries & Build outputs
+*.apk
+*.aab
+*.symbols
+*.map.json
+WebsiteDownloader.apk
+website_downloader_mobile/.dart_tool/
+website_downloader_mobile/.flutter-plugins
+website_downloader_mobile/.flutter-plugins-dependencies
+website_downloader_mobile/.pub-cache/
+website_downloader_mobile/.pub/
+website_downloader_mobile/build/
+website_downloader_mobile/android/.gradle/
+website_downloader_mobile/android/app/build/
+website_downloader_mobile/android/local.properties
